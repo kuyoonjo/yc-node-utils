@@ -11,7 +11,9 @@
     "build": "tsc --pretty --outDir build",
     "serve": "npm run clean && nodemon -e ts --exec \"npm run format && npm run lint && tsc --pretty --outDir .tmp && node .tmp/index\"",
     "deploy": "pm2 deploy ecosystem.config.js production",
-    "initRemote": "pm2 deploy ecosystem.config.js production setup"
+    "initRemote": "pm2 deploy ecosystem.config.js production setup",
+    "start": "node build/index.js",
+    "postinstall": "npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -24,5 +26,9 @@
   },
   "dependencies": {
     "@ycs/core": "^1.0.3"
+  },
+  "engines": {
+    "node": "8.x.x",
+    "npm": "4.x.x"
   }
 }
