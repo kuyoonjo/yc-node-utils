@@ -42,8 +42,8 @@ export const production: IConfig = {
       },
     },
 
-    host: `${config.production.domain}:${config.production.port}`,
-    schemes: ['http'],
+    host: `yc-node-utils.herokuapp.com`,
+    schemes: ['https'],
     basePath: '/',
     produces: ['application/json', 'application/xml'],
   },
