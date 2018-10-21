@@ -31,61 +31,6 @@ class Controller {
       handleError(ctx, e);
     }
   };
-
-  // Gets a single Wechat from the DB
-  public show = async (ctx: IContext) => {
-    try {
-      const entity = await show(Wechat, ctx);
-      if (!entity) throw Boom.notFound();
-      response(
-        ctx,
-        200,
-        entity.toJSON({
-          virtuals: true,
-        })
-      );
-    } catch (e) {
-      handleError(ctx, e);
-    }
-  };
-
-  // Creates a new Wechat in the DB
-  public create = async (ctx: IContext) => {
-    try {
-      if (!ctx.request.fields) throw Boom.badData('Empty body');
-      delete ctx.request.fields._id;
-      const entity = await Wechat.create(ctx.request.fields);
-      response(ctx, 201, entity);
-    } catch (e) {
-      handleError(ctx, e);
-    }
-  };
-
-  // Updates an existing Wechat in the DB
-  public update = async (ctx: IContext) => {
-    try {
-      delete ctx.request.fields._id;
-      const entity = await Wechat.findById(ctx.params.id).exec();
-      if (!entity) throw Boom.notFound();
-      patchUpdates(entity, ctx.request.fields);
-      await entity.save();
-      response(ctx, 200, entity);
-    } catch (e) {
-      handleError(ctx, e);
-    }
-  };
-
-  // Deletes a Wechat from the DB
-  public destroy = async (ctx: IContext) => {
-    try {
-      const entity = await Wechat.findById(ctx.params.id).exec();
-      if (!entity) throw Boom.notFound();
-      await entity.remove();
-      response(ctx, 204);
-    } catch (e) {
-      handleError(ctx, e);
-    }
-  };
 }
 
 export default new Controller();
