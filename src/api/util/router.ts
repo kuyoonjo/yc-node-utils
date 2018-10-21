@@ -18,8 +18,32 @@ export default Util.routes(
         description: 'Successful operation',
         schema: Util.docSchema.resultWithOptions({
           extras: {
-            ip: {
+            valid: {
+              type: 'boolean',
+            },
+            address: {
               type: 'string',
+            },
+            groups: {
+              type: 'number',
+            },
+            v4: {
+              type: 'boolean',
+            },
+            subnet: {
+              type: 'string',
+            },
+            subnetMask: {
+              type: 'number',
+            },
+            addressMinusSuffix: {
+              type: 'string',
+            },
+            parsedAddress: {
+              type: 'array',
+              items: {
+                type: 'string',
+              },
             },
           },
         }),
@@ -43,8 +67,32 @@ export default Util.routes(
         description: 'Successful operation',
         schema: Util.docSchema.resultWithOptions({
           extras: {
-            ip: {
+            valid: {
+              type: 'boolean',
+            },
+            address: {
               type: 'string',
+            },
+            groups: {
+              type: 'number',
+            },
+            v4: {
+              type: 'boolean',
+            },
+            subnet: {
+              type: 'string',
+            },
+            subnetMask: {
+              type: 'number',
+            },
+            addressMinusSuffix: {
+              type: 'string',
+            },
+            parsedAddress: {
+              type: 'array',
+              items: {
+                type: 'string',
+              },
             },
           },
         }),

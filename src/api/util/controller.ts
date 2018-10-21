@@ -8,9 +8,7 @@ class Controller {
   // Gets a list of Utils
   public ip6 = async (ctx: IContext) => {
     try {
-      response(ctx, 200, {
-        ip: ctx.request.ip,
-      });
+      response(ctx, 200, new Address6(ctx.request.ip));
     } catch (e) {
       handleError(ctx, e);
     }
@@ -18,9 +16,7 @@ class Controller {
 
   public ip4 = async (ctx: IContext) => {
     try {
-      response(ctx, 200, {
-        ip: new Address6(ctx.request.ip).to4(),
-      });
+      response(ctx, 200, new Address6(ctx.request.ip).to4());
     } catch (e) {
       handleError(ctx, e);
     }
